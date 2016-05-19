@@ -1,69 +1,114 @@
 function compute() {
 	var result;
-	var num1 = document.getElementById("input1").value;
-	var num2 = document.getElementById("input2").value;
-	var frac1 = "";
-	var frac2 = "";
-	frac1 = num1.split(new RegExp("/", "gi")).length - 1;
-	frac2 = num2.split(new RegExp("/", "gi")).length - 1;
+	// user input
+	var dividend = document.getElementById("input1").value;
+	var divisor = document.getElementById("input2").value;
+	// number of forward slashes
+	var dividend_frac = dividend.split(new RegExp("/", "gi")).length - 1;
+	var divisor_frac = divisor.split(new RegExp("/", "gi")).length - 1;
+	// number of hyphens
+	var dividend_neg = dividend.split(new RegExp("-", "gi")).length - 1;
+	var divisor_neg = divisor.split(new RegExp("-", "gi")).length - 1;
 
 	// handle blank input fields
-	if(num1.length == 0) {
+	if(dividend.length == 0) {
 		result = "ERROR: Numerator is blank";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
-	else if(num2.length == 0) {
+	else if(divisor.length == 0) {
 		result = "ERROR: Denominator is blank";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
-	// handle bad input
-	else if(frac2 == 1) {
-		result = "ERROR: Denominator cannot be a fraction";
+
+	// handle bad divisor input
+	else if(divisor_frac == 1) {
+		result = "ERROR: Divisor cannot be a fraction";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
-	else if(frac2 > 1) {
-		result = "ERROR: Denominator is improperly formatted";
+	else if(divisor_neg == 1) {
+		if(divisor.charAt(0) == "-") {
+			result = "ERROR: Divisor cannot be negative";
+		}
+		else {
+			result = "ERROR: Divisor is improperly formatted"
+		}
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
-	else if(frac1 > 1) {
-		result = "ERROR: Numerator is improperly formatted";
+	else if(divisor_frac > 1 || divisor_neg > 1) {
+		result = "ERROR: Divisor is improperly formatted";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
-	// calculations for fractions
-	else if(frac1 == 1) {
-		var numerator = num1.substr(0, num1.indexOf("/"));
-		var denominator = num1.substr(num1.indexOf("/") + 1);
-		if(denominator % num2 == 0) {
-			result = "Denominator is zero";
+
+	// handle bad dividend input
+	else if(dividend_neg == 1 && dividend.charAt(0) != "-") {
+		result = "ERROR: Dividend contains negative sign, but in wrong place";
+		document.getElementById("result").innerHTML = result;
+		return;
+	}
+	else if(dividend_frac > 1 || dividend_neg > 1) {
+		result = "ERROR: Dividend is improperly formatted";
+		document.getElementById("result").innerHTML = result;
+		return;
+	}
+
+	// Computation
+	else {
+		// Calculations for negatives
+		if(dividend_neg == 1) {
+			if(dividend_frac == 1) {
+				var numerator = parseInt(dividend.substr(0, dividend.indexOf("/")));
+				var denominator = parseInt(dividend.substr(dividend.indexOf("/") + 1));
+				var z = (parseInt(divisor) * denominator);
+				while(numerator < 0) {
+					numerator = numerator + z;
+				}
+				dividend = numerator + "/" + denominator;
+			}
+			else {
+				var x = parseInt(dividend);
+				var y = parseInt(divisor);
+				while(x < 0) {
+					x = x + y;
+				}
+				dividend = x;
+			}
+		}
+		// Calculations for fractions
+		if(dividend_frac == 1) {
+			var numerator = dividend.substr(0, dividend.indexOf("/"));
+			var denominator = dividend.substr(dividend.indexOf("/") + 1);
+			// if denominator is a multiple of the divisor
+			if(denominator % divisor == 0) {
+				result = "Denominator is zero";
+				document.getElementById("result").innerHTML = result;
+				return;
+			}
+			else {
+				var x = 1;
+				while(((denominator * x) % divisor) != 1) {
+					// if there exists no multiplicative inverse
+					if(x == divisor) {
+						result = "No Solution Found";
+						document.getElementById("result").innerHTML = result;
+						return;
+					}
+					x = x + 1;
+				}		
+				result = ((numerator * x) % divisor);
+				document.getElementById("result").innerHTML = result;
+				return;
+			}
+		}
+		// normal modular calculation
+		else {
+			result = dividend % divisor;
 			document.getElementById("result").innerHTML = result;
 			return;
 		}
-		else {
-			var x = 1;
-			while(((denominator * x) % num2) != 1) {
-				if(x == num2) {
-					result = "No Solution Found";
-					document.getElementById("result").innerHTML = result;
-					return;
-				}
-				x = x + 1;
-			}		
-			result = ((numerator * x) % num2);
-			document.getElementById("result").innerHTML = result;
-		}
-	}
-	// normal modular calculations
-	else if(frac1 == 0) {
-		result = num1 % num2;
-		document.getElementById("result").innerHTML = result;
-	}
-	else {
-		result = "why would this ever happen?";
-		document.getElementById("result").innerHTML = result;
 	}
 }

@@ -1,4 +1,10 @@
-.full {
+@import url('http://getbootstrap.com/dist/css/bootstrap.css');
+
+/*html, body, .container-table {
+	height: 100%;
+}*/
+
+body {
     background: url('http://placehold.it/1920x1080') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -6,3 +12,33 @@
     -o-background-size: cover;
 }
 
+.container {
+	height: 100%;
+	display: table;
+	vertical-align: middle;
+}
+
+.bg-title {
+	height: 100%;
+	position: relative;
+	width: 100%;
+}
+
+.title {
+	font-family: 'Great Vibes', cursive;
+	color: white;
+	display: block;
+	font-size: 200px;
+	position: relative;
+	text-align: center;
+}
+
+/*.container-table {
+	display: table;
+}
+
+.vertical-center-row {
+	display: table-center;
+	vertical-align: middle;
+}
+*/

@@ -11,6 +11,12 @@ body {
 	background-color: #EFEFEF;
 }
 
+body h2 {
+	color: black;
+	text-align: center;
+	font-size: 100px;
+}
+
 .jumbotron {
 	font-family: 'Great Vibes', cursive;
 	color: black;
@@ -29,10 +35,16 @@ body {
 	text-align: center;
 }
 
+.form-group {
+	text-align: center;
+}
+
 .form-group button {
 	font-family: 'Great Vibes', cursive;
 	color: black;
 	font-size: 200px;
 }
+
+
 
 

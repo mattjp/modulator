@@ -1,28 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+  
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>The Modulator</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
+    <link href="modulator.css" rel="stylesheet">
+
+    <link href='https://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+
     <script src="modulator.js"></script>
+    
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/bootstrap.min.js"></script>
   </head>
 
   <body>
-    <h1>The Modulator</h1>
+    <div class="jumbotron">
+      <div class="title">
+        <h1>The Modulator</h1>
+      </div>
+    </div>
 
-    <input id="input1">
-    <h2>%</h2>
-    <input id="input2">
-    <button type="button" onclick="compute()">Compute</button>
-    <h3 id="result">no input</h3>
-    <p id="help2"></p>
-    <p id="help"></p>
+    <form class="form-inline">
+      <div class="form-group">
+        <input type="text" class="form-control" id="input1" placeholder="a">
+      </div> 
+      <div class="form-group">
+        <button type="button" onclick="compute()">%</button>
+      </div>   
+      <div class="form-group">
+        <input type="text" class="form-control" id="input2" placeholder="n">
+      </div>
+    </form> 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <h1 id="result"></h1>
+
+
+
+
+
+
+
+<!--  <input id="input1">
+      <h2>%</h2>
+      <input id="input2">
+      <button type="button" onclick="compute()">Compute</button>
+      <h3 id="result">no input</h3>
+      <p id="help2"></p>
+      <p id="help"></p> -->
+      <!-- </div> -->
+
+
+
+
+
+    <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
+  
   </body>
+
 </html>

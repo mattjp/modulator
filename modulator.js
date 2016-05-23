@@ -12,46 +12,46 @@ function compute() {
 
 	// Handle blank input fields
 	if(dividend.length == 0) {
-		result = "ERROR: Numerator is blank";
+		result = "Dividend is blank";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
 	else if(divisor.length == 0) {
-		result = "ERROR: Denominator is blank";
+		result = "Divisor is blank";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
 
 	// Handle bad divisor input
 	else if(divisor_frac == 1) {
-		result = "ERROR: Divisor cannot be a fraction";
+		result = "Divisor cannot be a fraction";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
 	else if(divisor_neg == 1) {
 		if(divisor.charAt(0) == "-") {
-			result = "ERROR: Divisor cannot be negative";
+			result = "Divisor cannot be negative";
 		}
 		else {
-			result = "ERROR: Divisor is improperly formatted"
+			result = "Divisor is improperly formatted"
 		}
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
 	else if(divisor_frac > 1 || divisor_neg > 1) {
-		result = "ERROR: Divisor is improperly formatted";
+		result = "Divisor is improperly formatted";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
 
 	// Handle bad dividend input
 	else if(dividend_neg == 1 && dividend.charAt(0) != "-") {
-		result = "ERROR: Dividend contains negative sign, but in wrong place";
+		result = "Dividend is improperly formatted";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
 	else if(dividend_frac > 1 || dividend_neg > 1) {
-		result = "ERROR: Dividend is improperly formatted";
+		result = "Dividend is improperly formatted";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}

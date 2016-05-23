@@ -12,39 +12,69 @@ body {
 }
 
 body h2 {
+	font-family: 'Josefin Sans', sans-serif;
 	color: black;
 	text-align: center;
 	font-size: 100px;
 }
 
 .jumbotron {
-	font-family: 'Great Vibes', cursive;
+	font-family: 'Josefin Sans', sans-serif;
 	color: black;
 	text-align: center;
+	margin-top: -30px;
+	left: 0;
+	right: 0;
 }
 
 .title h1 {
-	font-size: 200px;
-}
-
-.input h1 {
-	font-size: 200px;
+	font-size: 175px;
 }
 
 .form-inline {
 	text-align: center;
 }
 
-.form-group {
+.form-group input:focus {
+	background-color: #EFEFEF;
+	outline: none;
+	border-radius: 0px;
+	border-bottom: 5px solid #3CBC8D;
+}
+
+.form-group input {
+	font-family: 'Muli', sans-serif;
+	font-size: 30px;
+	background-color: #EFEFEF;
 	text-align: center;
+	border: none;
+	border-radius: 0px;
+	border-bottom: 1px solid black;
+	outline: 0;
+    transition:border .2s;
+}
+
+.form-group button:hover {
+	color: #3CBC8D;
+}
+
+.form-group button:active {
+	color: #123B2C;
+}
+
+.form-group button:focus {
+	background-color: #EFEFEF;
+	outline: none;
+	border: none;
 }
 
 .form-group button {
-	font-family: 'Great Vibes', cursive;
+	font-family: 'Muli', sans-serif;
 	color: black;
 	font-size: 200px;
+	border: none;
+	background-color: #EFEFEF;
+	text-decoration: none;
+	outline: 0;
+	transition:all .4s ease 0s;
 }
-
-
-
-

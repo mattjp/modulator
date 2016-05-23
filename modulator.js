@@ -12,46 +12,46 @@ function compute() {
 
 	// Handle blank input fields
 	if(dividend.length == 0) {
-		result = "Dividend is blank";
+		result = "?";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
 	else if(divisor.length == 0) {
-		result = "Divisor is blank";
+		result = "?";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
 
 	// Handle bad divisor input
 	else if(divisor_frac == 1) {
-		result = "Divisor cannot be a fraction";
+		result = "?";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
 	else if(divisor_neg == 1) {
 		if(divisor.charAt(0) == "-") {
-			result = "Divisor cannot be negative";
+			result = "?";
 		}
 		else {
-			result = "Divisor is improperly formatted"
+			result = "?"
 		}
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
 	else if(divisor_frac > 1 || divisor_neg > 1) {
-		result = "Divisor is improperly formatted";
+		result = "?";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
 
 	// Handle bad dividend input
 	else if(dividend_neg == 1 && dividend.charAt(0) != "-") {
-		result = "Dividend is improperly formatted";
+		result = "?";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
 	else if(dividend_frac > 1 || dividend_neg > 1) {
-		result = "Dividend is improperly formatted";
+		result = "?";
 		document.getElementById("result").innerHTML = result;
 		return;
 	}
@@ -82,16 +82,16 @@ function compute() {
 		if(dividend_frac == 1) {
 			var numerator = dividend.substr(0, dividend.indexOf("/"));
 			var denominator = dividend.substr(dividend.indexOf("/") + 1);
-			// if denominator is a multiple of the divisor
-			if(denominator % divisor == 0) {
-				result = "Denominator is zero";
-				document.getElementById("result").innerHTML = result;
-				return;
-			}
 			// If the fraction is reducible
 			if(numerator % denominator == 0) {
 				dividend = numerator / denominator;
 				result = dividend % divisor;
+				document.getElementById("result").innerHTML = result;
+				return;
+			}
+			// if denominator is a multiple of the divisor
+			if(denominator % divisor == 0) {
+				result = "?";
 				document.getElementById("result").innerHTML = result;
 				return;
 			}
@@ -101,7 +101,7 @@ function compute() {
 				while(((denominator * x) % divisor) != 1) {
 					if(x == divisor) {
 						// No modular inverse exists
-						result = "No Solution Found";
+						result = "?";
 						document.getElementById("result").innerHTML = result;
 						return;
 					}
@@ -119,4 +119,11 @@ function compute() {
 			return;
 		}
 	}
+}
+
+function color() {
+	$("h2").toggleClass("result1 result2");
+	setTimeout(function() {
+		$("h2").toggleClass("result2 result1");
+	}, 400);
 }

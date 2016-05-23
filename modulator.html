@@ -9,16 +9,13 @@
     <title>The Modulator</title>
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
-
     <link href="modulator.css" rel="stylesheet">
-
     <link href='https://fonts.googleapis.com/css?family=Josefin+Sans' rel='stylesheet' type='text/css'>
-
     <link href='https://fonts.googleapis.com/css?family=Muli' rel='stylesheet' type='text/css'>
 
-    <script src="modulator.js"></script>
-    
     <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.0/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+    <script type="text/javascript" src="modulator.js"></script>
   </head>
 
   <body>
@@ -33,7 +30,7 @@
         <input type="text" id="input1" placeholder="Dividend">
       </div> 
       <div class="form-group">
-        <button type="button" onclick="compute()">%</button>
+        <button id="btn" type="button" onclick="compute(); color();">%</button>
       </div>   
       <div class="form-group">
         <input type="text" id="input2" placeholder="Divisor">
@@ -41,31 +38,15 @@
     </form> 
 
     <div class="row col-md-4 col-md-offset-4 text-center">
-      <h2 id="result">?</h2>
+      <h2 id="result" class="result1">?</h2>
     </div>
 
     <footer class="footer">
       <div class="container">
-        <p>A project originally written to do my EECS 376 homework, rewritten & refurbished for the internet.</p>
+        <p>A project originally written to do my <a href="http://www.engin.umich.edu/college/academics/bulletin/courses/eecs">EECS 376</a> homework, rewritten & refurbished for the internet.</p>
         <p>Contact me at <a href="mailto:mattjp@umich.edu">mattjp@umich.edu</a>, or check out my <a href="http://www-personal.umich.edu/~mattjp/index.html">website</a></p>
       </div>
     </footer>
-
-
-
-
-<!--  <input id="input1">
-      <h2>%</h2>
-      <input id="input2">
-      <button type="button" onclick="compute()">Compute</button>
-      <h3 id="result">no input</h3>
-      <p id="help2"></p>
-      <p id="help"></p> -->
-      <!-- </div> -->
-
-
-
-
 
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>

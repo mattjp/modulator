@@ -18,15 +18,17 @@ body {
 	font-size: 100px;
 	border-bottom: 1px solid black;
 	position: relative;
+	transition:all .4s ease 0s;
 }
 
 .result2 {
 	font-family: 'Josefin Sans', sans-serif;
-	color: green;
+	color: #3CBC8D;
 	text-align: center;
 	font-size: 100px;
 	border-bottom: 1px solid black;
 	position: relative;
+	transition:all .4s ease 0s;
 }
 
 .jumbotron {

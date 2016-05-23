@@ -78,3 +78,21 @@ body h2 {
 	outline: 0;
 	transition:all .4s ease 0s;
 }
+
+.container p {
+	font-family: 'Muli', sans-serif;
+	text-align: center;
+}
+
+.container a {
+	font-family: 'Muli', sans-serif;
+	color: #3CBC8D;
+}
+
+.footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 60px;
+}
+

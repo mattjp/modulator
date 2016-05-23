@@ -11,14 +11,11 @@ body {
 	background-color: #EFEFEF;
 }
 
-.container h2 {
+.row h2 {
 	font-family: 'Josefin Sans', sans-serif;
 	color: black;
 	text-align: center;
 	font-size: 100px;
-}
-
-.answer {
 	border-bottom: 1px solid black;
 }
 

@@ -11,11 +11,15 @@ body {
 	background-color: #EFEFEF;
 }
 
-body h2 {
+.container h2 {
 	font-family: 'Josefin Sans', sans-serif;
 	color: black;
 	text-align: center;
 	font-size: 100px;
+}
+
+.answer {
+	border-bottom: 1px solid black;
 }
 
 .jumbotron {

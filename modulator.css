@@ -11,12 +11,22 @@ body {
 	background-color: #EFEFEF;
 }
 
-.row h2 {
+.result1 {
 	font-family: 'Josefin Sans', sans-serif;
 	color: black;
 	text-align: center;
 	font-size: 100px;
 	border-bottom: 1px solid black;
+	position: relative;
+}
+
+.result2 {
+	font-family: 'Josefin Sans', sans-serif;
+	color: green;
+	text-align: center;
+	font-size: 100px;
+	border-bottom: 1px solid black;
+	position: relative;
 }
 
 .jumbotron {
